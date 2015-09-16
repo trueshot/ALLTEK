@@ -10,36 +10,22 @@ set echo on
 do while .t.
    clear
    BOX as container
-      BOX as nav,tabs
-         BOX as listitem,tabs
-            @ link "badge " to {badge.prg}
+      BOX as row
+         BOX as span,extrasmall12,medium1,large1
+            @ link "badge" to {badge.prg} as button,primary
          ENDBOX
-         BOX as listitem,tabs
-            @ link "labels " to {labels.prg}
+         BOX as span,extrasmall12,medium1,large1
+            @ link "labels" to {labels.prg} as button,primary
+            ??""
          ENDBOX
-         BOX as listitem,tabs
-            @ link "list " to {list.prg}
+         BOX as span,extrasmall12,medium1,large1
+            @ link "foo" to {foo.prg} as button,primary
+            ??""
          ENDBOX
       ENDBOX
    ENDBOX
-   
-//   BOX as container
-//      BOX as row
-//         BOX as span,extrasmall12,medium1,large1
-//            @ link "badge" to {badge.prg} as button,primary
-//         ENDBOX
-//         BOX as span,extrasmall12,medium1,large1
-//            @ link "labels" to {labels.prg} as button,primary
-//            ??""
-//         ENDBOX
-//         BOX as span,extrasmall12,medium1,large1
-//            @ link "list" to {list.prg} as button,primary
-//            ??""
-//         ENDBOX
-//      ENDBOX
-//   ENDBOX
-     read as .t.
-     
+      read as .t.
+      
    ENDBOX
    box as container
       box as row

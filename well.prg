@@ -13,7 +13,7 @@ BOX as container
    BOX as row
       BOX as jumbotron
          BOX as heading
-            @ say "Welcome to the Lists page"
+            @ say "Welcome to the Wells page"
          ENDBOX
          BOX as paragraph
             SET PROPERTY cushionbottom TO "25px"
