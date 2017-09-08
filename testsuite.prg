@@ -4,30 +4,46 @@ SET AUTHOR TO George Burt
 SET DESCRIPTION TO Testing
 SET VIEWPORT TO width=device-width, initial-scale=1.0
 SET FRAMEWORK TO denali,v3.1.1
+set talk on
+set echo on
 
 do while .t.
    clear
    box as container
       @ link "Typopgraphy" to Mtypography
       ?" "
-      @ link "Next" to 
+      @ link "Tables" to Mtables
+      ?" "
+      @ link "Images" to Mimages
+      ?" "
+      @ link "Images" to Mimages
    endbox
-   //read
-   //do case
-   //   case Mtypography
+   read .f.
+   do case
+      case Mtypography
          do typography
+      case Mtables
+         do tables
+      case Mimages
+         do images
+   endcase
 enddo
 
 procedure typography
 clear
 box as container
-   @ say "Typography" as heading
-   @ say "Heading" as subheading
+   box as row
+      @ link "Return to Menu" as button,link,small to Mreturn
+   endbox
+   box as pageheader
+      @ say "Typography" AS heading SET textsize TO "4em"
+   endbox
+   @ say "Headings" as subheading
    box as paragraph
       @ say "Denali Heading (36px)" as heading
    endbox
    box as paragraph
-      @ say "Denali subHeading (30pxx)" as subheading
+      @ say "Denali subHeading (30px)" as subheading
    endbox
    box as paragraph
       @ say "Denali subsubHeading (24px)" as subsubheading
@@ -41,7 +57,7 @@ box as container
    box as paragraph
       @ say "Denali subsubsubsubsubHeading (12px)" as subsubsubsubsubheading
    endbox
-   @ say "" as hr
+   ?""
    box as paragraph
       box as heading
          @ say "Denali Heading "
@@ -573,6 +589,1035 @@ box as container
    }} as pretty
    
 endbox
-read
+read .f.
+do case
+   case Mreturn
+      return
+endcase
 return
+
+
+
+
+procedure tables
+clear
+box as container
+   box as row
+      @ link "Return to Menu" as button,link,small to Mreturn
+   endbox
+   box as pageheader
+      @ say "Tables" AS heading SET textsize TO "4em"
+   endbox
+   @ say "Basic Table" as subheading
+   box as table
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   {{
+   box as table
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   }} as prettylines,scrollable
+   @ say "" as hr
+   @ say "Striped Rows" as subheading
+   box as table,striped
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   {{
+   box as table,striped
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox   
+   }} as prettylines,scrollable
+   @ say "" as hr
+   @ say "Bordered Table" as subheading
+   box as table,bordered
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   {{
+   box as table,bordered
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   }} as prettylines,scrollable
+   @ say "" as hr
+   @ say "Hover Rows" as subheading
+   box as table,hover
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   {{
+   box as table,hover
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   }} as prettylines,scrollable
+   @ say "" as hr
+   @ say "Condensed Table" as subheading
+   box as table,condensed
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   {{
+   box as table,condensed
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow
+            box as td
+               @ say "John"
+            endbox
+            box as td
+               @ say "Doe"
+            endbox
+            box as td
+               @ say "john@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "Mary"
+            endbox
+            box as td
+               @ say "Moe"
+            endbox
+            box as td
+               @ say "mary@example.com"
+            endbox
+         endbox
+         box as tablerow
+            box as td
+               @ say "July"
+            endbox
+            box as td
+               @ say "Dooley"
+            endbox
+            box as td
+               @ say "july@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   }} as prettylines,scrollable
+   @ say "" as hr
+   @ say "Contextual Classes" as subheading
+   box as table
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow,default
+            box as td
+               @ say "Default"
+            endbox
+            box as td
+               @ say "Davis"
+            endbox
+            box as td
+               @ say "default@example.com"
+            endbox
+         endbox
+         box as tablerow,success
+            box as td
+               @ say "Success"
+            endbox
+            box as td
+               @ say "Johnson"
+            endbox
+            box as td
+               @ say "success@example.com"
+            endbox
+         endbox
+         box as tablerow,danger
+            box as td
+               @ say "Danger"
+            endbox
+            box as td
+               @ say "Williams"
+            endbox
+            box as td
+               @ say "danger@example.com"
+            endbox
+         endbox
+         box as tablerow,info
+            box as td
+               @ say "Info"
+            endbox
+            box as td
+               @ say "Brown"
+            endbox
+            box as td
+               @ say "info@example.com"
+            endbox
+         endbox
+         box as tablerow,warning
+            box as td
+               @ say "Warning"
+            endbox
+            box as td
+               @ say "Jones"
+            endbox
+            box as td
+               @ say "warning@example.com"
+            endbox
+         endbox
+         box as tablerow,active
+            box as td
+               @ say "Active"
+            endbox
+            box as td
+               @ say "Smith"
+            endbox
+            box as td
+               @ say "active@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   {{
+   box as table
+      box as tableheader
+         box as tablerow
+            box as thd
+               @ say "Firstname"
+            endbox
+            box as thd
+               @ say "Lastname"
+            endbox
+            box as thd
+               @ say "Email"
+            endbox
+         endbox
+      endbox
+      box as tablebody
+         box as tablerow,default
+            box as td
+               @ say "Default"
+            endbox
+            box as td
+               @ say "Davis"
+            endbox
+            box as td
+               @ say "default@example.com"
+            endbox
+         endbox
+         box as tablerow,success
+            box as td
+               @ say "Success"
+            endbox
+            box as td
+               @ say "Johnson"
+            endbox
+            box as td
+               @ say "success@example.com"
+            endbox
+         endbox
+         box as tablerow,danger
+            box as td
+               @ say "Danger"
+            endbox
+            box as td
+               @ say "Williams"
+            endbox
+            box as td
+               @ say "danger@example.com"
+            endbox
+         endbox
+         box as tablerow,info
+            box as td
+               @ say "Info"
+            endbox
+            box as td
+               @ say "Brown"
+            endbox
+            box as td
+               @ say "info@example.com"
+            endbox
+         endbox
+         box as tablerow,warning
+            box as td
+               @ say "Warning"
+            endbox
+            box as td
+               @ say "Jones"
+            endbox
+            box as td
+               @ say "warning@example.com"
+            endbox
+         endbox
+         box as tablerow,active
+            box as td
+               @ say "Active"
+            endbox
+            box as td
+               @ say "Smith"
+            endbox
+            box as td
+               @ say "active@example.com"
+            endbox
+         endbox
+      endbox
+   endbox
+   }} as prettylines,scrollable
+   @ say "" as hr
+   @ say "Responsive Tables" as subheading
+   box as tableresponsive
+      box as table
+         box as tableheader
+            box as tablerow
+               box as thd
+                  @ say "Firstname"
+               endbox
+               box as thd
+                  @ say "Lastname"
+               endbox
+               box as thd
+                  @ say "Email"
+               endbox
+               box as thd
+                  @ say "Edit"
+               endbox
+               box as thd
+                  @ say "Delete"
+               endbox
+            endbox
+         endbox
+         box as tablebody
+            box as tablerow
+               box as td
+                  @ say "John"
+               endbox
+               box as td
+                  @ say "Doe"
+               endbox
+               box as td
+                  @ say "john@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "Mary"
+               endbox
+               box as td
+                  @ say "Moe"
+               endbox
+               box as td
+                  @ say "mary@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "July"
+               endbox
+               box as td
+                  @ say "Dooley"
+               endbox
+               box as td
+                  @ say "july@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "Becky"
+               endbox
+               box as td
+                  @ say "Smith"
+               endbox
+               box as td
+                  @ say "susan@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "Matt"
+               endbox
+               box as td
+                  @ say "Jones"
+               endbox
+               box as td
+                  @ say "matt@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+         endbox
+      endbox
+   endbox
+   {{
+   box as tableresponsive
+      box as table
+         box as tableheader
+            box as tablerow
+               box as thd
+                  @ say "Firstname"
+               endbox
+               box as thd
+                  @ say "Lastname"
+               endbox
+               box as thd
+                  @ say "Email"
+               endbox
+               box as thd
+                  @ say "Edit"
+               endbox
+               box as thd
+                  @ say "Delete"
+               endbox
+            endbox
+         endbox
+         box as tablebody
+            box as tablerow
+               box as td
+                  @ say "John"
+               endbox
+               box as td
+                  @ say "Doe"
+               endbox
+               box as td
+                  @ say "john@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "Mary"
+               endbox
+               box as td
+                  @ say "Moe"
+               endbox
+               box as td
+                  @ say "mary@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "July"
+               endbox
+               box as td
+                  @ say "Dooley"
+               endbox
+               box as td
+                  @ say "july@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "Becky"
+               endbox
+               box as td
+                  @ say "Smith"
+               endbox
+               box as td
+                  @ say "susan@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+            box as tablerow
+               box as td
+                  @ say "Matt"
+               endbox
+               box as td
+                  @ say "Jones"
+               endbox
+               box as td
+                  @ say "matt@example.com"
+               endbox
+               box as td
+                  @ say "Edit"
+               endbox
+               box as td
+                  @ say "Delete"
+               endbox
+            endbox
+         endbox
+      endbox
+   endbox
+   }} as prettylines,scrollable
+endbox
+read .f.
+do case
+   case Mreturn
+      return
+endcase
+return
+
+
+
+
+procedure images
+clear
+box as container
+   box as row
+      @ link "Return to Menu" as button,link,small to Mreturn
+   endbox
+   box as pageheader
+      @ say "Images" AS heading SET textsize TO "4em"
+   endbox
+   @ say "Image Shapes" as subheading
+   ?" "
+   box as row
+      box as span4
+         @ say "Rounded Corners: "
+         ?" "
+         @ sayImage  "https://unsplash.it/500/400" as rounded SET width to "204px"
+      endbox
+      box as span4
+         @ say "Circle: "
+         ?" "
+         @ sayImage  "https://unsplash.it/500/400" as circle
+         SET PROPERTY width to "204px"
+      endbox
+      box as span4
+         @ say "Thumbnail: "
+         ?" "
+         @ sayImage  "https://unsplash.it/500/400" as thumbnail SET width to "204px"
+      endbox
+   endbox
+   ?" "
+   {{
+   box as row
+      box as span4
+         @ say "Rounded Corners: "
+         ?" "
+         @ sayImage  "https://unsplash.it/500/400" as rounded SET width to "204px"
+      endbox
+      box as span4
+         @ say "Circle: "
+         ?" "
+         @ sayImage  "https://unsplash.it/500/400" as circle
+         SET PROPERTY width to "204px"
+      endbox
+      box as span4
+         @ say "Thumbnail: "
+         ?" "
+         @ sayImage  "https://unsplash.it/500/400" as thumbnail SET width to "204px"
+      endbox
+   endbox
+   }} as prettylines,scrollable
+   @ say "" as hr
+   @ say "Responsive Images" as subheading
+   @ sayImage  "https://unsplash.it/800/600" as responsive
+   
+   link to Mwhatever
+   endlink
+   set property indent to "20px"
+   ?" "
+   ?" "
+   @ sayImage  "https://unsplash.it/850/750" as responsive
+@ say "" as hr
+   @ linkImage  "https://unsplash.it/404/301"  to Mtemp
+   ?" "
+   ?" "
+@ say "" as hr
+   @ linkImage  "https://unsplash.it/401/301" to Mtemp as rounded
+   ?" "
+   ?" "
+@ say "" as hr
+   @ linkImage  "https://unsplash.it/408/301" to Mtemp as circle
+   ?" "
+   ?" "
+@ say "" as hr
+   @ linkImage  "https://unsplash.it/800/740" to Mtemp as thumbnail
+   ?" "
+   ?" "
+@ say "" as hr
+   @ linkImage  "https://unsplash.it/409/301" to Mtemp as responsive
+endbox
+read .f.
+do case
+   case Mreturn
+      return
+endcase
+return
+
+
+
 
